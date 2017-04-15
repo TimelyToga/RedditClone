@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit Clone</title>
+
+    <link rel="stylesheet" href="/static/css/index.css"/>
+
+    {#    Scripts#}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="/static/js/index.js"></script>
+</head>
+<body>
+    <h1>Reddit Clone</h1>
+
+    <h3>Hello, {{ name }}</h3>
+    <h3>Today is {{ day }}</h3>
+
+    {% block body %}
+        {% for p in posts %}
+            <div class="post">
+                <button onclick=upvote({{ p.id }})></button>
+                <a href="{{ p.link }}"><h2>{{ p.title }}</h2></a>
+                <h3 id="post-score-{{ p.id }}">{{ p.score }}</h3>
+            </div>
+        {% endfor %}
+    {% endblock %}
+</body>
+</html>
